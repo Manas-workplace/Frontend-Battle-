@@ -1,156 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Frontend Battle</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Frontend Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* New & Enhanced Styles for Portfolio Section - (Consider moving these to styles.css) */
+    
+    #portfolio-section {
+      background: linear-gradient(135deg, var(--accent) 0%, #7d60e6 100%); /* Similar gradient to blog */
+      padding: 6rem 0;
+      border-radius: 15px;
+      margin: 2rem auto;
+      max-width: 1200px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    #portfolio-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.8rem;
+      color: var(--text);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+      gap: 2.5rem; /* Spacing between cards */
+      padding: 0 2rem; /* Inner padding for the grid */
+      max-width: 1100px; /* Max width for the grid */
+      margin: 0 auto; /* Center the grid */
+    }
+
+    .portfolio-item {
+      background: var(--card); /* Reusing existing card background variable */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+      border-radius: 18px; /* Rounded corners */
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
+      text-decoration: none; /* Remove underline from links */
+      color: var(--text); /* Inherit text color */
+      display: flex;
+      flex-direction: column;
+      height: 350px; /* Fixed height for consistent card size */
+      position: relative; /* For overlay/button positioning */
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Default shadow */
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-12px); /* Lift card on hover */
+      box-shadow: 0 18px 45px rgba(139,92,246,0.25); /* Enhanced shadow on hover */
+    }
+
+    .portfolio-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px; /* Accent bar at the top */
+      background: var(--accent);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      transform: scaleX(0); /* Start hidden */
+      transform-origin: left;
+      transition: transform 0.3s ease-out;
+    }
+
+    .portfolio-item:hover::before {
+      transform: scaleX(1); /* Expand on hover */
+    }
+
+    .portfolio-content {
+      padding: 1.8rem;
+      flex-grow: 1; /* Allow content to grow and fill space */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Push link to bottom */
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* Subtle dark gradient from bottom */
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .portfolio-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .view-project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(139, 92, 246, 0.8); /* Accent colored overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 18px;
+      z-index: 10; /* Ensure it's above content */
+    }
+
+    .portfolio-item:hover .view-project-overlay {
+      opacity: 1;
+    }
+
+    .view-project-overlay .btn {
+      padding: 1rem 2rem;
+      background-color: var(--text); /* White button */
+      color: var(--accent); /* Accent text */
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .view-project-overlay .btn:hover {
+      background-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 2rem;
+        padding: 0 1.5rem;
+      }
+
+      #portfolio-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .portfolio-item {
+        height: auto; /* Allow height to adjust */
+        min-height: 300px; /* Ensure minimum height */
+        border-radius: 12px;
+      }
+      .portfolio-item::before {
+        height: 6px;
+      }
+      .portfolio-item h3 {
+        font-size: 1.6rem;
+      }
+      .portfolio-item p {
+        font-size: 0.95rem;
+      }
+      .portfolio-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="particles"></div>
+  <div class="particles"></div>
 
-<div id="loader">
-<div class="loader-content">
-    <div class="spinner"></div>
-    <p>Loading Portfolio...</p>
-</div>
-</div>
-
-<nav>
-<div class="logo">Frontend Battle</div>
-<div class="hamburger" id="hamburger">
-    <div></div><div></div><div></div>
-</div>
-<ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="features.html">Features</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="search-bar-container">
-    <input type="text" placeholder="Search..." class="search-input">
-    <button class="search-button">🔍</button>
-    </li>
-    <li><button class="theme-btn" id="theme-toggle">🌓</button></li>
-</ul>
-</nav>
-
-<section id="portfolio-hero" class="hero">
-<div class="hero-content">
-    <h1>Our Creative Works</h1>
-    <p>Explore a collection of our impactful projects.</p>
-</div>
-</section>
-
-<section id="projects" class="section fade-in">
-<h2>Recent Projects</h2>
-<div class="portfolio-grid">
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1542831371-dceb21589e47?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 1">
-    <div class="portfolio-info">
-        <h3>E-commerce Redesign</h3>
-        <p>A modern and responsive redesign of a large-scale e-commerce platform, focusing on user experience and conversion.</p>
+  <div id="loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Loading Portfolio...</p>
     </div>
-    </a>
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1550009158-b11802de92b8?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 2">
-    <div class="portfolio-info">
-        <h3>SaaS Dashboard</h3>
-        <p>Development of an intuitive and data-rich SaaS dashboard for analytics and project management.</p>
-    </div>
-    </a>
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1629904853893-c2c6d48259b3?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 3">
-    <div class="portfolio-info">
-        <h3>Mobile Banking App</h3>
-        <p>Cross-platform mobile application for secure and convenient banking on the go.</p>
-    </div>
-    </a>
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1504384764586-bb4dfce54700?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 4">
-    <div class="portfolio-info">
-        <h3>Company Brand Site</h3>
-        <p>A dynamic and visually striking corporate website to reflect a new brand identity.</p>
-    </div>
-    </a>
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1555949963-aa79dce98be5?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 5">
-    <div class="portfolio-info">
-        <h3>Healthcare Portal</h3>
-        <p>Secure and compliant web portal for patient management and medical data access.</p>
-    </div>
-    </a>
-    <a href="#" class="portfolio-item">
-    <img src="https://images.unsplash.com/photo-1581454523315-d72db857ac1f?auto=format&fit=crop&q=80&w=400&h=200" alt="Project 6">
-    <div class="portfolio-info">
-        <h3>Learning Management System</h3>
-        <p>An interactive LMS platform designed for engaging online education experiences.</p>
-    </div>
-    </a>
-</div>
-</section>
+  </div>
 
-<section id="gallery" class="section fade-in">
-<h2>Our Design Aesthetics</h2>
-<div class="gallery-grid">
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510519138101-570d1dca3d6b?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 1"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558494689-c454e9999742?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 2"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510915228340-a35ee7192a54?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 3"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516321319277-02008779b5b2?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 4"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 5"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&q=80&w=300&h=180" alt="Gallery Image 6"></div>
-</div>
-</section>
-
-<div id="imageModal" class="modal">
-<span class="close-button">&times;</span>
-<img class="modal-content" id="modalImage">
-</div>
-
-
-<section id="cta-portfolio" class="section fade-in cta-section">
-<h2>Inspired by Our Work?</h2>
-<p>Let's create something extraordinary for your brand!</p>
-<a href="contact.html" class="btn ripple">Start Your Project</a>
-</section>
-
-<footer class="footer">
-<div class="footer-content">
-    <div class="footer-section about">
-    <h3 class="logo">Frontend Battle</h3>
-    <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
-    <div class="social-links">
-        <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
-        <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
-        <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
+  <nav>
+    <div class="logo">Frontend Battle</div>
+    <div class="hamburger" id="hamburger">
+      <div></div><div></div><div></div>
     </div>
-    </div>
-    <div class="footer-section links">
-    <h3>Quick Links</h3>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="search-bar-container">
+        <input type="text" placeholder="Search..." class="search-input">
+        <button class="search-button">🔍</button>
+      </li>
+      <li><button class="theme-btn" id="theme-toggle">🌓</button></li>
     </ul>
-    </div>
-    <div class="footer-section contact-info">
-    <h3>Contact Us</h3>
-    <p><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</p>
-    <p><i class="fas fa-phone"></i> +1 (234) 567-890</p>
-    <p><i class="fas fa-envelope"></i> info@frontendbattle.com</p>
-    </div>
-</div>
-<div class="footer-bottom">
-    &copy; 2024 Frontend Battle. All rights reserved.
-</div>
-</footer>
+  </nav>
 
-<button class="scroll-top" id="scrollTop">↑</button>
+  <section id="portfolio-hero" class="hero">
+    <div class="hero-content">
+      <h1>Our Creative Works</h1>
+      <p>Showcasing our passion for innovative design and robust development.</p>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <section id="portfolio-section" class="section fade-in">
+    <h2>Featured Projects</h2>
+    <div class="portfolio-grid">
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>E-commerce Platform Redesign</h3>
+          <p>A modern, user-friendly redesign focusing on conversion optimization and mobile experience.</p>
+          <span class="project-tags">#WebDesign #UIUX #ECommerce</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>SaaS Dashboard Development</h3>
+          <p>Built a powerful and intuitive analytics dashboard for a B2B SaaS application.</p>
+          <span class="project-tags">#SaaS #Dashboard #DataViz</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>Mobile App UI for Fitness</h3>
+          <p>Designed and prototyped a sleek mobile application interface for a new fitness tracker.</p>
+          <span class="project-tags">#MobileApp #UIUX #Fitness</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>Interactive Educational Website</h3>
+          <p>Developed an engaging platform for online learning with interactive lessons and quizzes.</p>
+          <span class="project-tags">#Education #WebDev #Interactive</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>Corporate Website & Branding</h3>
+          <p>Crafted a professional corporate website complete with new branding guidelines.</p>
+          <span class="project-tags">#Branding #Corporate #Responsive</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+      <a href="#" class="portfolio-item">
+        <div class="portfolio-content">
+          <h3>NFT Marketplace Frontend</h3>
+          <p>Built the intricate frontend for a decentralized NFT marketplace with wallet integration.</p>
+          <span class="project-tags">#Blockchain #Web3 #NFT</span>
+        </div>
+        <div class="view-project-overlay">
+          <span class="btn">View Project</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="cta-portfolio" class="section fade-in cta-section">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Let's create something extraordinary together. Get a free consultation!</p>
+    <a href="contact.html" class="btn ripple">Request a Quote</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3 class="logo">Frontend Battle</h3>
+        <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
+        <div class="social-links">
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-info">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</p>
+        <p><i class="fas fa-phone"></i> +1 (234) 567-890</p>
+        <p><i class="fas fa-envelope"></i> info@frontendbattle.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 Frontend Battle. All rights reserved.
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
