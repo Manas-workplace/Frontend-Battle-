@@ -10,12 +10,13 @@
     /* New & Enhanced Styles for Portfolio Section - (Consider moving these to styles.css) */
     
     #portfolio-section {
-      background: linear-gradient(135deg, var(--accent) 0%, #7d60e6 100%); /* Similar gradient to blog */
+      /* Simpler background for the section */
+      background: var(--card); /* Using card background for subtle distinction */
       padding: 6rem 0;
       border-radius: 15px;
       margin: 2rem auto;
       max-width: 1200px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
     }
 
     #portfolio-section h2 {
@@ -23,7 +24,7 @@
       margin-bottom: 3rem;
       font-size: 2.8rem;
       color: var(--text);
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle text shadow */
     }
 
     .portfolio-grid {
@@ -36,44 +37,28 @@
     }
 
     .portfolio-item {
-      background: var(--card); /* Reusing existing card background variable */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
-      border-radius: 18px; /* Rounded corners */
+      background: rgba(255, 255, 255, 0.03); /* Very subtle transparent background */
+      border: 1px solid rgba(255, 255, 255, 0.08); /* Very thin, subtle border */
+      border-radius: 12px; /* Slightly less rounded corners */
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions for hover */
       text-decoration: none; /* Remove underline from links */
       color: var(--text); /* Inherit text color */
       display: flex;
       flex-direction: column;
-      height: 350px; /* Fixed height for consistent card size */
-      position: relative; /* For overlay/button positioning */
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Default shadow */
+      height: auto; /* Allow height to adjust based on content */
+      min-height: 280px; /* Minimum height for cards */
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Default light shadow */
     }
 
     .portfolio-item:hover {
-      transform: translateY(-12px); /* Lift card on hover */
-      box-shadow: 0 18px 45px rgba(139,92,246,0.25); /* Enhanced shadow on hover */
+      transform: translateY(-8px); /* Lift card slightly on hover */
+      background-color: rgba(255, 255, 255, 0.05); /* Slightly brighter background on hover */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
     }
-
-    .portfolio-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px; /* Accent bar at the top */
-      background: var(--accent);
-      border-top-left-radius: 18px;
-      border-top-right-radius: 18px;
-      transform: scaleX(0); /* Start hidden */
-      transform-origin: left;
-      transition: transform 0.3s ease-out;
-    }
-
-    .portfolio-item:hover::before {
-      transform: scaleX(1); /* Expand on hover */
-    }
+    
+    /* Removed the ::before accent bar */
 
     .portfolio-content {
       padding: 1.8rem;
@@ -81,7 +66,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between; /* Push link to bottom */
-      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* Subtle dark gradient from bottom */
     }
 
     .portfolio-item h3 {
@@ -94,54 +78,37 @@
     .portfolio-item p {
       font-size: 1rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 1.2rem;
     }
 
     .project-tags {
       font-size: 0.85rem;
-      color: var(--accent);
+      color: var(--accent); /* Keep accent color for tags */
       margin-top: 0.5rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .view-project-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(139, 92, 246, 0.8); /* Accent colored overlay */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 18px;
-      z-index: 10; /* Ensure it's above content */
-    }
-
-    .portfolio-item:hover .view-project-overlay {
-      opacity: 1;
-    }
-
-    .view-project-overlay .btn {
-      padding: 1rem 2rem;
-      background-color: var(--text); /* White button */
-      color: var(--accent); /* Accent text */
-      border-radius: 8px;
+    .view-project-link {
+      display: inline-block;
+      margin-top: auto; /* Pushes to the bottom of the card content */
+      color: var(--accent);
       font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+      align-self: flex-start; /* Align link to the start */
     }
 
-    .view-project-overlay .btn:hover {
-      background-color: var(--accent);
-      color: var(--text);
+    .view-project-link:hover {
+      color: #ede9fe; /* Lighter accent on hover */
+      text-decoration: underline; /* Add underline on hover */
     }
+
+    /* Removed .view-project-overlay styles as it's no longer used */
 
     /* Responsive adjustments for smaller screens */
     @media (max-width: 768px) {
@@ -156,12 +123,8 @@
       }
 
       .portfolio-item {
-        height: auto; /* Allow height to adjust */
-        min-height: 300px; /* Ensure minimum height */
-        border-radius: 12px;
-      }
-      .portfolio-item::before {
-        height: 6px;
+        border-radius: 10px;
+        min-height: 250px;
       }
       .portfolio-item h3 {
         font-size: 1.6rem;
@@ -221,9 +184,7 @@
           <h3>E-commerce Platform Redesign</h3>
           <p>A modern, user-friendly redesign focusing on conversion optimization and mobile experience.</p>
           <span class="project-tags">#WebDesign #UIUX #ECommerce</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -232,9 +193,7 @@
           <h3>SaaS Dashboard Development</h3>
           <p>Built a powerful and intuitive analytics dashboard for a B2B SaaS application.</p>
           <span class="project-tags">#SaaS #Dashboard #DataViz</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -243,9 +202,7 @@
           <h3>Mobile App UI for Fitness</h3>
           <p>Designed and prototyped a sleek mobile application interface for a new fitness tracker.</p>
           <span class="project-tags">#MobileApp #UIUX #Fitness</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -254,9 +211,7 @@
           <h3>Interactive Educational Website</h3>
           <p>Developed an engaging platform for online learning with interactive lessons and quizzes.</p>
           <span class="project-tags">#Education #WebDev #Interactive</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -265,9 +220,7 @@
           <h3>Corporate Website & Branding</h3>
           <p>Crafted a professional corporate website complete with new branding guidelines.</p>
           <span class="project-tags">#Branding #Corporate #Responsive</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -276,9 +229,7 @@
           <h3>NFT Marketplace Frontend</h3>
           <p>Built the intricate frontend for a decentralized NFT marketplace with wallet integration.</p>
           <span class="project-tags">#Blockchain #Web3 #NFT</span>
-        </div>
-        <div class="view-project-overlay">
-          <span class="btn">View Project</span>
+          <span class="view-project-link">View Project &rarr;</span>
         </div>
       </a>
 
@@ -296,12 +247,7 @@
       <div class="footer-section about">
         <h3 class="logo">Frontend Battle</h3>
         <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
-        <div class="social-links">
-          <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
-          <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
-          <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
         </div>
-      </div>
       <div class="footer-section links">
         <h3>Quick Links</h3>
         <ul>
