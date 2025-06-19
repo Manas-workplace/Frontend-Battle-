@@ -1,295 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - Frontend Battle</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<style>
-/* New & Enhanced Styles for Contact Section - (Consider moving these to styles.css) */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Frontend Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* New & Enhanced Styles for Contact Section - (Consider moving these to styles.css) */
 
-#contact-section {
-  background: linear-gradient(135deg, #4c4c4c 0%, #333333 100%); /* A darker gradient for contact */
-  padding: 6rem 0;
-  border-radius: 15px;
-  margin: 2rem auto;
-  max-width: 1200px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+    #contact-section {
+      background: linear-gradient(135deg, #4c4c4c 0%, #333333 100%); /* A darker gradient for contact */
+      padding: 6rem 0;
+      border-radius: 15px;
+      margin: 2rem auto;
+      max-width: 1200px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
 
-#contact-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.8rem;
-  color: var(--text);
-  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
+    #contact-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.8rem;
+      color: var(--text);
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr; /* Default to single column */
-  gap: 3rem;
-  padding: 0 2rem;
-  max-width: 900px; /* Constrain overall container width */
-  margin: 0 auto; /* Center the container */
-}
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Default to single column */
+      gap: 3rem;
+      padding: 0 2rem;
+      max-width: 900px; /* Constrain overall container width */
+      margin: 0 auto; /* Center the container */
+    }
 
-@media (min-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr 1.5fr; /* Two columns on larger screens */
-  }
-}
+    @media (min-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr 1.5fr; /* Two columns on larger screens */
+      }
+    }
 
-.contact-info-section {
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 2.5rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-}
+    .contact-info-section {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center content vertically */
+    }
 
-.contact-info-section h3 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
+    .contact-info-section h3 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
 
-.contact-info-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1rem;
-}
+    .contact-info-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
 
-.contact-info-section ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.5rem;
-}
+    .contact-info-section ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1.5rem;
+    }
 
-.contact-info-section ul li {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  color: var(--text);
-  display: flex;
-  align-items: flex-start;
-}
+    .contact-info-section ul li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+    }
 
-.contact-info-section ul li i {
-  color: var(--accent);
-  margin-right: 15px;
-  font-size: 1.3rem;
-  margin-top: 3px; /* Align icon better */
-}
+    .contact-info-section ul li i {
+      color: var(--accent);
+      margin-right: 15px;
+      font-size: 1.3rem;
+      margin-top: 3px; /* Align icon better */
+    }
 
-.contact-form-wrapper {
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 2.5rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
+    .contact-form-wrapper {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
 
-.contact-form-wrapper h3 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
+    .contact-form-wrapper h3 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
 
-.contact-form-wrapper .form-group {
-  margin-bottom: 1.5rem;
-}
+    .contact-form-wrapper .form-group {
+      margin-bottom: 1.5rem;
+    }
 
-.contact-form-wrapper label {
-  display: block;
-  margin-bottom: 0.7rem;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
-}
+    .contact-form-wrapper label {
+      display: block;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+    }
 
-.contact-form-wrapper input[type="text"],
-.contact-form-wrapper input[type="email"],
-.contact-form-wrapper textarea {
-  width: 100%;
-  padding: 1.2rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: var(--text);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
+    .contact-form-wrapper input[type="text"],
+    .contact-form-wrapper input[type="email"],
+    .contact-form-wrapper textarea {
+      width: 100%;
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
 
-.contact-form-wrapper input::placeholder,
-.contact-form-wrapper textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
+    .contact-form-wrapper input::placeholder,
+    .contact-form-wrapper textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
 
-.contact-form-wrapper input[type="text"]:focus,
-.contact-form-wrapper input[type="email"]:focus,
-.contact-form-wrapper textarea:focus {
-  border-color: var(--accent);
-  background-color: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); /* Subtle glow on focus */
-}
+    .contact-form-wrapper input[type="text"]:focus,
+    .contact-form-wrapper input[type="email"]:focus,
+    .contact-form-wrapper textarea:focus {
+      border-color: var(--accent);
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); /* Subtle glow on focus */
+    }
 
-.contact-form-wrapper textarea {
-  resize: vertical; /* Allow vertical resizing */
-  min-height: 150px;
-}
+    .contact-form-wrapper textarea {
+      resize: vertical; /* Allow vertical resizing */
+      min-height: 150px;
+    }
 
-.contact-form-wrapper button.btn {
-  width: 100%;
-  padding: 1.2rem 2rem;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 1rem;
-  border: none; /* Remove default button border */
-}
+    .contact-form-wrapper button.btn {
+      width: 100%;
+      padding: 1.2rem 2rem;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      border: none; /* Remove default button border */
+    }
 
- @media (max-width: 576px) {
-  .contact-container {
-    padding: 0 1rem;
-  }
-  #contact-section h2 {
-    font-size: 2.2rem;
-  }
-  .contact-info-section, .contact-form-wrapper {
-    padding: 2rem;
-    border-radius: 15px;
-  }
-  .contact-info-section h3, .contact-form-wrapper h3 {
-    font-size: 1.8rem;
-  }
-  .contact-info-section p, .contact-info-section ul li, .contact-form-wrapper label,
-  .contact-form-wrapper input, .contact-form-wrapper textarea {
-    font-size: 0.95rem;
-  }
-}
-</style>
+     @media (max-width: 576px) {
+      .contact-container {
+        padding: 0 1rem;
+      }
+      #contact-section h2 {
+        font-size: 2.2rem;
+      }
+      .contact-info-section, .contact-form-wrapper {
+        padding: 2rem;
+        border-radius: 15px;
+      }
+      .contact-info-section h3, .contact-form-wrapper h3 {
+        font-size: 1.8rem;
+      }
+      .contact-info-section p, .contact-info-section ul li, .contact-form-wrapper label,
+      .contact-form-wrapper input, .contact-form-wrapper textarea {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="particles"></div>
+  <div class="particles"></div>
 
-<div id="loader">
-<div class="loader-content">
-  <div class="spinner"></div>
-  <p>Loading Contact Page...</p>
-</div>
-</div>
-
-<nav>
-<div class="logo">Frontend Battle</div>
-<div class="hamburger" id="hamburger">
-  <div></div><div></div><div></div>
-</div>
-<ul class="nav-links" id="nav-links">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="features.html">Features</a></li>
-  <li><a href="services.html">Services</a></li>
-  <li><a href="portfolio.html">Portfolio</a></li>
-  <li><a href="blog.html">Blog</a></li>
-  <li><a href="contact.html">Contact</a></li>
-  <li class="search-bar-container">
-    <input type="text" placeholder="Search..." class="search-input">
-    <button class="search-button">🔍</button>
-  </li>
-  <li><button class="theme-btn" id="theme-toggle">🌓</button></li>
-</ul>
-</nav>
-
-<section id="contact-hero" class="hero">
-<div class="hero-content">
-  <h1>Let's Connect</h1>
-  <p>We're eager to hear from you and discuss your project.</p>
-</div>
-</section>
-
-<section id="contact-section" class="section fade-in">
-<h2>Get in Touch</h2>
-<div class="contact-container">
-  <div class="contact-info-section">
-    <h3>Reach Out To Us</h3>
-    <p>Whether you have a question about our services, need a demo, or just want to chat, our team is ready to assist you.</p>
-    <ul>
-      <li><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</li>
-      <li><i class="fas fa-phone"></i> +1 (234) 567-890</li>
-      <li><i class="fas fa-envelope"></i> info@frontendbattle.com</li>
-      <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</li>
-    </ul>
-  </div>
-
-  <div class="contact-form-wrapper">
-    <h3>Send Us a Message</h3>
-    <form class="contact-form">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your full name">
-      </div>
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email address">
-      </div>
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" required placeholder="What's your message about?">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
-      </div>
-      <button type="submit" class="btn ripple">Send Message</button>
-    </form>
-  </div>
-</div>
-</section>
-
-<footer class="footer">
-<div class="footer-content">
-  <div class="footer-section about">
-    <h3 class="logo">Frontend Battle</h3>
-    <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
-    <div class="social-links">
-      <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
-      <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
-      <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
+  <div id="loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Loading Contact Page...</p>
     </div>
   </div>
-  <div class="footer-section links">
-    <h3>Quick Links</h3>
-    <ul>
+
+  <nav>
+    <div class="logo">Frontend Battle</div>
+    <div class="hamburger" id="hamburger">
+      <div></div><div></div><div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="features.html">Features</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li class="search-bar-container">
+        <input type="text" placeholder="Search..." class="search-input">
+        <button class="search-button">🔍</button>
+      </li>
+      <li><button class="theme-btn" id="theme-toggle">🌓</button></li>
     </ul>
-  </div>
-  <div class="footer-section contact-info">
-    <h3>Contact Us</h3>
-    <p><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</p>
-    <p><i class="fas fa-phone"></i> +1 (234) 567-890</p>
-    <p><i class="fas fa-envelope"></i> info@frontendbattle.com</p>
-  </div>
-</div>
-<div class="footer-bottom">
-  &copy; 2024 Frontend Battle. All rights reserved.
-</div>
-</footer>
+  </nav>
 
-<button class="scroll-top" id="scrollTop">↑</button>
+  <section id="contact-hero" class="hero">
+    <div class="hero-content">
+      <h1>Let's Connect</h1>
+      <p>We're eager to hear from you and discuss your project.</p>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <section id="contact-section" class="section fade-in">
+    <h2>Get in Touch</h2>
+    <div class="contact-container">
+      <div class="contact-info-section">
+        <h3>Reach Out To Us</h3>
+        <p>Whether you have a question about our services, need a demo, or just want to chat, our team is ready to assist you.</p>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</li>
+          <li><i class="fas fa-phone"></i> +1 (234) 567-890</li>
+          <li><i class="fas fa-envelope"></i> info@frontendbattle.com</li>
+          <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h3>Send Us a Message</h3>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="What's your message about?">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn ripple">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3 class="logo">Frontend Battle</h3>
+        <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
+        <div class="social-links">
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
+          <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-info">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</p>
+        <p><i class="fas fa-phone"></i> +1 (234) 567-890</p>
+        <p><i class="fas fa-envelope"></i> info@frontendbattle.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 Frontend Battle. All rights reserved.
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
