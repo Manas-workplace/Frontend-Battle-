@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Frontend Battle</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="particles"></div>
+
+<div id="loader">
+<div class="loader-content">
+    <div class="spinner"></div>
+    <p>Loading Blog...</p>
+</div>
+</div>
+
+<nav>
+<div class="logo">Frontend Battle</div>
+<div class="hamburger" id="hamburger">
+    <div></div><div></div><div></div>
+</div>
+<ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="search-bar-container">
+    <input type="text" placeholder="Search..." class="search-input">
+    <button class="search-button">🔍</button>
+    </li>
+    <li><button class="theme-btn" id="theme-toggle">🌓</button></li>
+</ul>
+</nav>
+
+<section id="blog-hero" class="hero">
+<div class="hero-content">
+    <h1>Latest Insights & News</h1>
+    <p>Stay updated with our thoughts on web development and design.</p>
+</div>
+</section>
+
+<section id="blog-posts" class="section fade-in">
+<h2>Our Articles</h2>
+<div class="blog-post-grid">
+    <a href="#" class="blog-post-card">
+    <img src="https://images.unsplash.com/photo-1488590528505-98d2f092d2b7?auto=format&fit=crop&q=80&w=400&h=200" alt="Blog Post 1">
+    <div class="blog-post-content">
+        <h3>The Future of Frontend Frameworks</h3>
+        <p>A deep dive into the evolving landscape of JavaScript frameworks and what's next.</p>
+        <span class="read-more">Read More &rarr;</span>
+    </div>
+    </a>
+    <a href="#" class="blog-post-card">
+    <img src="https://images.unsplash.com/photo-1542398555-c5483a3028d7?auto=format&fit=crop&q=80&w=400&h=200" alt="Blog Post 2">
+    <div class="blog-post-content">
+        <h3>Mastering CSS Animations for Stunning UIs</h3>
+        <p>Tips and tricks to create engaging and performant CSS animations for your web projects.</p>
+        <span class="read-more">Read More &rarr;</span>
+    </div>
+    </a>
+    <a href="#" class="blog-post-card">
+    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400&h=200" alt="Blog Post 3">
+    <div class="blog-post-content">
+        <h3>Web Accessibility: A Must-Have, Not a Nice-to-Have</h3>
+        <p>Understanding the importance of accessible web design and how to implement it effectively.</p>
+        <span class="read-more">Read More &rarr;</span>
+    </div>
+    </a>
+</div>
+</section>
+
+<section id="cta-blog" class="section fade-in cta-section">
+<h2>Have a Topic in Mind?</h2>
+<p>Suggest a blog post idea or collaborate with us!</p>
+<a href="contact.html" class="btn ripple">Share Your Idea</a>
+</section>
+
+<footer class="footer">
+<div class="footer-content">
+    <div class="footer-section about">
+    <h3 class="logo">Frontend Battle</h3>
+    <p>Innovating digital experiences with cutting-edge frontend solutions.</p>
+    <div class="social-links">
+        <a href="#"><img src="https://via.placeholder.com/24/fff?text=FB" alt="Facebook"></a>
+        <a href="#"><img src="https://via.placeholder.com/24/fff?text=TW" alt="Twitter"></a>
+        <a href="#"><img src="https://via.placeholder.com/24/fff?text=LI" alt="LinkedIn"></a>
+    </div>
+    </div>
+    <div class="footer-section links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </div>
+    <div class="footer-section contact-info">
+    <h3>Contact Us</h3>
+    <p><i class="fas fa-map-marker-alt"></i> 123 Dev Street, Web City, WD 45678</p>
+    <p><i class="fas fa-phone"></i> +1 (234) 567-890</p>
+    <p><i class="fas fa-envelope"></i> info@frontendbattle.com</p>
+    </div>
+</div>
+<div class="footer-bottom">
+    &copy; 2024 Frontend Battle. All rights reserved.
+</div>
+</footer>
+
+<button class="scroll-top" id="scrollTop">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
